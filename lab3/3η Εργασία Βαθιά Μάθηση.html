@@ -1,0 +1,683 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>3η Εργασία Βαθιά Μάθηση</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='3η-εργασία-βαθιά-μάθηση'><span>3η Εργασία: Βαθιά Μάθηση</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#3η-εργασία-βαθιά-μάθηση">3η Εργασία: Βαθιά Μάθηση</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3"><a class="md-toc-inner" href="#image-captioning">Image Captioning</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n9"><a class="md-toc-inner" href="#σύνολο-δεδομένων">Σύνολο δεδομένων</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n21"><a class="md-toc-inner" href="#εποπτεία-των-δεδομένων">Εποπτεία των δεδομένων</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n31"><a class="md-toc-inner" href="#κατέβασμα-του-συνόλου-δεδομένων">Κατέβασμα του συνόλου δεδομένων</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n42"><a class="md-toc-inner" href="#google-drive-mount-προαιρετικό">Google Drive mount (προαιρετικό)</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n60"><a class="md-toc-inner" href="#το-μοντέλο">Το μοντέλο</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n66"><a class="md-toc-inner" href="#αξιολόγηση-της-ποιότητας-του-captioning-bleu">Αξιολόγηση της ποιότητας του captioning (BLEU)</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n77"><a class="md-toc-inner" href="#βελτιώσεις-και-παραδοτέα">Βελτιώσεις (και παραδοτέα)</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n80"><a class="md-toc-inner" href="#encoder">Encoder</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n84"><a class="md-toc-inner" href="#προεπεξεργασία-κειμένου">Προεπεξεργασία κειμένου</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n92"><a class="md-toc-inner" href="#embeddings">Embeddings</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n94"><a class="md-toc-inner" href="#sentence-generator-beam-search">Sentence Generator (Beam Search)</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n100"><a class="md-toc-inner" href="#υπερπαράμετροι-του-decoder">Υπερπαράμετροι του decoder</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n105"><a class="md-toc-inner" href="#παραδοτέο">Παραδοτέο</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n108"><a class="md-toc-inner" href="#διαγωνισμός-προαιρετικός">Διαγωνισμός (προαιρετικός)</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n110"><a class="md-toc-inner" href="#εικόνες-διαγωνισμού">Εικόνες διαγωνισμού</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n114"><a class="md-toc-inner" href="#δημιουργία-αρχείου-υποβολής">Δημιουργία αρχείου υποβολής</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n121"><a class="md-toc-inner" href="#το-site-του-διαγωνισμού-στο-codalab">Το site του διαγωνισμού στο Codalab</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n125"><a class="md-toc-inner" href="#υποβολή-απάντησης-και-leaderboard">Υποβολή απάντησης και leaderboard</a></span></p></div><h2 id='image-captioning'><span>Image Captioning</span></h2><p><span>Θέμα της 3ης εργασίας του μαθήματος είναι η Βαθιά Μάθηση. Θα μελετήσουμε ένα πρόβλημα που συνδυάζει Όραση Υπολογιστών και Επεξεργασία Φυσικής Γλώσσας. Συγκεκριμένα, θα φτιάξουμε ένα νευρωνικό δίκτυο παραγωγής λεκτικών περιγραφών από εικόνες (Image Captioning).</span></p><p><span>Σημείο εκκίνησης θα είναι το επίσημο tutorial του TensorFlow </span><a href='https://www.TensorFlow.org/tutorials/text/image_captioning'><span>&quot;Image captioning with visual attention&quot;</span></a><span>. Θα δουλέψουμε ωστόσο σε άλλο dataset και θα προσπαθήσουμε να βελτιώσουμε το tutorial σε διάφορα σημεία. </span></p><p><span>Τέλος, θα υπάρχει προαιρετικά η δυνατότητα υποβολής προβλέψεων πάνω σε δεδομένα ελέγχου χωρίς λεκτικές περιγραφές για τη συμμετοχή σε ένα μικρό in-class competition χωρίς καμία βαθμολογική σημασία.</span></p><p><img src="https://i.imgur.com/O2ZivTT.jpg" style="zoom:85%;" /></p><p><span>Ανοίξτε το notebook στο Colab ώστε να βλέπετε όλα τα κελιά. Στο web version χρειάζεται να κάνετε &quot;Toggle code&quot; και &quot;Toggle section&quot;.</span></p><h2 id='σύνολο-δεδομένων'><span>Σύνολο δεδομένων</span></h2><p><span>Τα ευρύτερα χρησιμοποιούμενα datasets στο Image Captioning είναι τα Flickr8k, Flickr30k, και το COCO. Το παράδειγμα του TensorFlow χρησιμοποιεί το COCO. Εμείς θα χρησιμοποιήσουμε το &quot;flickr30k-images-ecemod&quot;, ένα split του Flick30k ειδικά για το μάθημά μας.</span></p><p><span>Τα δεδομένα του flickr30k-images-ecemod είναι τα εξής:</span></p><ul><li><span>ένας φάκελος &quot;image_dir&quot; με 31.783 εικόνες από το Flickr</span></li><li><span>ένα αρχείο &quot;captions_new.csv&quot; με 148.915 captions για τις εικόνες του &quot;image_dir&quot;</span></li><li><span>ένα αρχείο &quot;train_files.csv&quot; λίστα των 21.000 εικόνων που αποτελούν το training set</span></li><li><span>ένα αρχείο &quot;test_files.csv&quot; λίστα των 4.524 εικόνων που αποτελούν το test set</span></li></ul><h3 id='εποπτεία-των-δεδομένων'><span>Εποπτεία των δεδομένων</span></h3><p><span>To flickr30k-images-ecemod έχει παρόμοια οργάνωση με το COCO. Κάθε εικόνα έχει 5 captions που έχουν γίνει από διαφορετικούς ανθρώπους μέσω της υπηρεσίας Mechanical Turk της Amazon. Ένα παράδειγμα:</span></p><p style="text-align: center;">Παράδειγμα εικόνας: _100007487.jpg</p><p><img src="https://i.imgur.com/wyBuzfC.jpg" referrerpolicy="no-referrer" alt="_100007487.jpg"></p><p><code>_100007487.jpg#0	A young child walks down a gravel path lined with a row of red outdoor chairs .</code></p><p><code>_100007487.jpg#1	A racetrack with red chairs stacked beside fence with a child walking .</code></p><p><code>_100007487.jpg#2	A child in a striped shirt walks by some red chairs .</code></p><p><code>_100007487.jpg#3	A child walking and leaving a trail behind them .</code></p><p><code>_100007487.jpg#4	A little kid is walking next to red banners .</code></p><p><span>Κάθε caption έχει τρία πεδία, το όνομα του αρχείου της εικόνας, τον αύξοντα αριθμό του caption και τέλος το ίδιο το caption.</span></p><h3 id='κατέβασμα-του-συνόλου-δεδομένων'><span>Κατέβασμα του συνόλου δεδομένων</span></h3><p><span>Με τον κώδικα που ακολουθεί, θα κατεβάσουμε το δικό μας dataset, αντικαθιστώντας τα sections &quot;Choose a dataset&quot; και &quot;Download the dataset&quot;. Τα προηγούμενα κελιά με τα installations και imports πρέπει να τα τρέξετε.</span></p><p><span>Στο επόμενο κελί κατεβάζουμε τις εικόνες του dataset:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Download image files</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">image_zip</span> <span class="cm-operator">=</span> <span class="cm-variable">tf</span>.<span class="cm-property">keras</span>.<span class="cm-property">utils</span>.<span class="cm-property">get_file</span>(<span class="cm-string">'flickr30k-images-ecemod.zip'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">cache_subdir</span><span class="cm-operator">=</span><span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">abspath</span>(<span class="cm-string">'.'</span>),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">origin</span><span class="cm-operator">=</span><span class="cm-string">'https://spartacus.1337.cx/flickr-mod/flickr30k-images-ecemod.zip'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">extract</span><span class="cm-operator">=</span><span class="cm-keyword">True</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">os</span>.<span class="cm-property">remove</span>(<span class="cm-variable">image_zip</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 138px;"></div><div class="CodeMirror-gutters" style="display: none; height: 138px;"></div></div></div></pre><p><span>και με το επόμενο τα &quot;captions_new.csv&quot;, &quot;train_files.csv&quot; και &quot;test_files.csv&quot;:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Download captions file</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">captions_file</span> <span class="cm-operator">=</span> <span class="cm-variable">tf</span>.<span class="cm-property">keras</span>.<span class="cm-property">utils</span>.<span class="cm-property">get_file</span>(<span class="cm-string">'captions_new.csv'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">cache_subdir</span><span class="cm-operator">=</span><span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">abspath</span>(<span class="cm-string">'.'</span>),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">origin</span><span class="cm-operator">=</span><span class="cm-string">'https://spartacus.1337.cx/flickr-mod/captions_new.csv'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">extract</span><span class="cm-operator">=</span><span class="cm-keyword">False</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Download train files list</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">train_files_list</span> <span class="cm-operator">=</span> <span class="cm-variable">tf</span>.<span class="cm-property">keras</span>.<span class="cm-property">utils</span>.<span class="cm-property">get_file</span>(<span class="cm-string">'train_files.csv'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">cache_subdir</span><span class="cm-operator">=</span><span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">abspath</span>(<span class="cm-string">'.'</span>),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">origin</span><span class="cm-operator">=</span><span class="cm-string">'https://spartacus.1337.cx/flickr-mod/train_files.csv'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">extract</span><span class="cm-operator">=</span><span class="cm-keyword">False</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Download test files list</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">test_files_list</span> <span class="cm-operator">=</span> <span class="cm-variable">tf</span>.<span class="cm-property">keras</span>.<span class="cm-property">utils</span>.<span class="cm-property">get_file</span>(<span class="cm-string">'test_files.csv'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">cache_subdir</span><span class="cm-operator">=</span><span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">abspath</span>(<span class="cm-string">'.'</span>),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">origin</span><span class="cm-operator">=</span><span class="cm-string">'https://spartacus.1337.cx/flickr-mod/test_files.csv'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">extract</span><span class="cm-operator">=</span><span class="cm-keyword">False</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 392px;"></div><div class="CodeMirror-gutters" style="display: none; height: 392px;"></div></div></div></pre><p><span>Με τον ακόλουθο κώδικα οργανώνουμε τα filenames και τα captions σε λίστες και ετοιμάζουμε τα train και test sets για το TensorFlow.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">path</span><span class="cm-operator">=</span><span class="cm-string">"."</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">IMAGE_DIR</span><span class="cm-operator">=</span><span class="cm-string">"image_dir"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">path</span> <span class="cm-operator">=</span> <span class="cm-variable">pathlib</span>.<span class="cm-property">Path</span>(<span class="cm-variable">path</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">captions</span> <span class="cm-operator">=</span> (<span class="cm-variable">path</span><span class="cm-operator">/</span><span class="cm-variable">captions_file</span>).<span class="cm-property">read_text</span>().<span class="cm-property">splitlines</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">captions</span> <span class="cm-operator">=</span> (<span class="cm-variable">line</span>.<span class="cm-property">split</span>(<span class="cm-string">'\t'</span>) <span class="cm-keyword">for</span> <span class="cm-variable">line</span> <span class="cm-keyword">in</span> <span class="cm-variable">captions</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">captions</span> <span class="cm-operator">=</span> ((<span class="cm-variable">fname</span>.<span class="cm-property">split</span>(<span class="cm-string">'#'</span>)[<span class="cm-number">0</span>], <span class="cm-variable">caption</span>) <span class="cm-keyword">for</span> (<span class="cm-variable">fname</span>, <span class="cm-variable">caption</span>) <span class="cm-keyword">in</span> <span class="cm-variable">captions</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">cap_dict</span> <span class="cm-operator">=</span> <span class="cm-variable">collections</span>.<span class="cm-property">defaultdict</span>(<span class="cm-builtin">list</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">fname</span>, <span class="cm-variable">cap</span> <span class="cm-keyword">in</span> <span class="cm-variable">captions</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable cm-error">cap_dict</span>[<span class="cm-variable">fname</span>].<span class="cm-property">append</span>(<span class="cm-variable">cap</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">train_files</span> <span class="cm-operator">=</span> (<span class="cm-variable">path</span><span class="cm-operator">/</span><span class="cm-variable">train_files_list</span>).<span class="cm-property">read_text</span>().<span class="cm-property">splitlines</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">train_captions</span> <span class="cm-operator">=</span> [(<span class="cm-builtin">str</span>(<span class="cm-variable">path</span><span class="cm-operator">/</span><span class="cm-variable">IMAGE_DIR</span><span class="cm-operator">/</span><span class="cm-variable">fname</span>), <span class="cm-variable">cap_dict</span>[<span class="cm-variable">fname</span>]) <span class="cm-keyword">for</span> <span class="cm-variable">fname</span> <span class="cm-keyword">in</span> <span class="cm-variable">train_files</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">test_files</span> <span class="cm-operator">=</span> (<span class="cm-variable">path</span><span class="cm-operator">/</span><span class="cm-variable">test_files_list</span>).<span class="cm-property">read_text</span>().<span class="cm-property">splitlines</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">test_captions</span> <span class="cm-operator">=</span> [(<span class="cm-builtin">str</span>(<span class="cm-variable">path</span><span class="cm-operator">/</span><span class="cm-variable">IMAGE_DIR</span><span class="cm-operator">/</span><span class="cm-variable">fname</span>), <span class="cm-variable">cap_dict</span>[<span class="cm-variable">fname</span>]) <span class="cm-keyword">for</span> <span class="cm-variable">fname</span> <span class="cm-keyword">in</span> <span class="cm-variable">test_files</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">train_raw</span> <span class="cm-operator">=</span> <span class="cm-variable">tf</span>.<span class="cm-property">data</span>.<span class="cm-property">experimental</span>.<span class="cm-property">from_list</span>(<span class="cm-variable">train_captions</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">test_raw</span> <span class="cm-operator">=</span> <span class="cm-variable">tf</span>.<span class="cm-property">data</span>.<span class="cm-property">experimental</span>.<span class="cm-property">from_list</span>(<span class="cm-variable">test_captions</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 461px;"></div><div class="CodeMirror-gutters" style="display: none; height: 461px;"></div></div></div></pre><p><span>Μετά των κώδικα αυτό, μπορείτε να συνεχίσετε από το κελί</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">train_raw</span>.<span class="cm-property">element_spec</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>του παραδείγματος, δουλεύοντας πλέον με το δικό μας dataset.</span></p><h3 id='google-drive-mount-προαιρετικό'><span>Google Drive mount (προαιρετικό)</span></h3><p><span>Επειδή το κατέβασμα των εικόνων παίρνει κάποια λεπτά μια καλή ιδέα θα ήταν να τις έχετε μόνιμα σε ένα directory στο Google Drive που θα κάνετε mount μέσα στο notebook. </span></p><ol><li><p><span>Φτιάξτε ένα καινούριο λογαριασμό Gmail για να έχετε χώρο.</span></p></li><li><p><span>Κατεβάστε τις εικόνες, κάντε τες unzip και ανεβάστε το folder &quot;image_dir&quot; στο Google Drive.</span></p></li><li><p><span>Εντός του notebook, χρησιμοποιείστε το button στο αριστερό sidebar για να εισάγετε τον κώδικα που χρειάζεται να τρέξετε για να κάνει mount το Google Drive. To Drive θα εμφανιστεί στο sidebar αν κάνετε ένα refresh. Με hover πάνω στα αρχεία και τους φακέλους, εμφανίζεται ένα hamburger button που σας επιτρέπει να αντιγράψετε το path τους.</span></p><p style="text-align: center;">Google Drive mount</p><p><img src="https://i.imgur.com/SRJYKUQ.jpg" referrerpolicy="no-referrer"></p></li><li><p><span>Αν το &quot;image_dir&quot; είναι στο root του Drive τότε μπορείτε να τροποποιήσετε τις προηγούμενες μεταβλητές </span><code>train_captions</code><span> και </span><code>test_captions</code><span> ως εξής:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">new_path</span> <span class="cm-operator">=</span> <span class="cm-string">'/content/drive/MyDrive'</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">new_path</span> <span class="cm-operator">=</span> <span class="cm-variable">pathlib</span>.<span class="cm-property">Path</span>(<span class="cm-variable">new_path</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">train_captions</span> <span class="cm-operator">=</span> [(<span class="cm-builtin">str</span>(<span class="cm-variable">new_path</span><span class="cm-operator">/</span><span class="cm-variable">IMAGE_DIR</span><span class="cm-operator">/</span><span class="cm-variable">fname</span>), <span class="cm-variable">cap_dict</span>[<span class="cm-variable">fname</span>]) <span class="cm-keyword">for</span> <span class="cm-variable">fname</span> <span class="cm-keyword">in</span> <span class="cm-variable">train_files</span>]</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">test_captions</span> <span class="cm-operator">=</span> [(<span class="cm-builtin">str</span>(<span class="cm-variable">new_path</span><span class="cm-operator">/</span><span class="cm-variable">IMAGE_DIR</span><span class="cm-operator">/</span><span class="cm-variable">fname</span>), <span class="cm-variable">cap_dict</span>[<span class="cm-variable">fname</span>]) <span class="cm-keyword">for</span> <span class="cm-variable">fname</span> <span class="cm-keyword">in</span> <span class="cm-variable">test_files</span>]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><p><span>Πλέον θα αρκεί να είναι mounted το Drive για να μπορούμε να διαβάσουμε τις εικόνες. Παρόμοια μπορείτε αν θέλετε να κάνετε και για τα υπόλοιπα αρχεία.</span></p></li></ol><h2 id='το-μοντέλο'><span>Το μοντέλο</span></h2><p><span>To μοντέλο βασίζεται  στην γενική αρχιτεκτονική των μετασχηματιστών. Ένα συνελικτικό δίκτυο χρησιμοποιείται ως encoder της οπτικής πληροφορίας και μια σειρά από επίπεδα transformer-decoder παράγουν την λεκτική περιγραφή. Τα επίπεδα του transformer-decoder περιλαμβάνουν και επίπεδα προσοχής (attention). </span></p><p style="text-align: center;">Transformer-decoder architecture</p><p><img src="https://TensorFlow.org/images/tutorials/transformer/ImageCaptioning.png" style="zoom:50%;" /></p><p><span>Για την εξοικείωσή σας με τις αρχιτεκτονικές αυτές μπορείτε να διαβάσετε τα tutorials του TensorFlow </span><a href='https://www.TensorFlow.org/text/tutorials/text_generation'><span>Text generation</span></a><span>, </span><a href='https://www.TensorFlow.org/text/tutorials/nmt_with_attention'><span>sequence-to-sequence</span></a><span>, και </span><a href='https://www.TensorFlow.org/text/tutorials/transformer'><span>Transformers</span></a><span>.</span></p><p><span>Στη συνέχεια μπορείτε να τρέξετε όλο το notebook για να δείτε τί κάνει συνολικά.</span></p><h2 id='αξιολόγηση-της-ποιότητας-του-captioning-bleu'><span>Αξιολόγηση της ποιότητας του captioning (BLEU)</span></h2><p><span>To tutorial δεν περιλαμβάνει κάποια αναφορά στην ποιότητα του παραγόμενου captioning. Αν θεωρήσουμε ότι κάθε εικόνα έχει κάποια αληθινά captions (references) και το νευρωνικό παράγει ένα δικό του caption (hypothesis) θα χρησιμοποιήσουμε τo BLEU (Bilingual Evaluation Understudy) score, μεταξύ hypothesis και references. Συνοπτικά, το BLEU είναι ένας σταθμισμένος μέσος όρος του πλήθους των κοινών unigrams, bigrams, trigrams, και fourgrams μεταξύ hypothesis και references. Το χειρότερο captioning λαμβάνει 0 και το καλύτερο 1. Δείτε ένα αναλυτικό παράδειγμα υπολογισμού του BLEU </span><a href='https://cloud.google.com/translate/automl/docs/evaluate'><span>εδώ</span></a><span>.</span></p><p><span>Για να παραχθεί ένα caption για μια εικόνα, πρώτα την φορτώνουμε με τη μέθοδο </span><code>image = load_image(image_path)</code><span> και στη συνέχεια καλούμε τη μέθοδο  </span><code>model.simple_gen(image)</code><span>.</span></p><p><span>Η NLTK στο </span><a href='https://www.nltk.org/_modules/nltk/translate/bleu_score.html'><span>nltk.translate.bleu_score</span></a><span> παρέχει τις απαραίτητες συναρτήσεις για τον υπολογισμό των BLEU scores:</span></p><ul><li><span>Για να μπορείτε να αξιολογείτε το captioning ενός μεμονωμένου παραδείγματος φτιάξτε μια συνάρτηση που να υπολογίζει την </span><code>sentence_bleu</code><span> μεταξύ hypothesis και αληθινών captions (references) για μια εικόνα. </span></li><li><span>Για να αξιολογείτε το captioning περισσότερων εικόνων πχ ενός μέρους ή όλου του test set φτιάξτε συνάρτηση που θα υπολογίζει την </span><code>corpus_bleu</code><span> μεταξύ όλων των hypotheses και references των εικόνων που του δίνονται. Σημειώστε ότι το </span><code>corpus_bleu</code><span> δεν είναι μέσος όρος των </span><code>sentence_bleu</code><span>.</span></li></ul><p><span>Σε όλες τις περιπτώσεις χρησιμοποιήστε τις εξής παραμέτρους: </span><code>weights=(0.4, 0.3, 0.2, 0.1)</code><span> και </span><code>smoothing_function=SmoothingFunction().method1</code><span>.</span></p><p><span>Πριν τον υπολογισμό, αφαιρείτε πάντοτε από τα references την τελική τελεία (το τελευταίο στοιχείο της λίστας).</span></p><h2 id='βελτιώσεις-και-παραδοτέα'><span>Βελτιώσεις (και παραδοτέα)</span></h2><p><span>Το πρώτο παραδοτέο είναι οι συναρτήσεις για τα BLEU scores της προηγούμενης παραγράφου.</span></p><p><span>Στη συνέχεια, εφόσον αποκτήσετε μια εικόνα της επίδοσης του default δικτύου (loss, accuracy, plots, χρόνοι εκπαίδευσης, BLEU scores) θα δοκιμάσουμε κάποιες ιδέες για βελτιώσεις στο δίκτυο (λοιπά παραδοτέα).</span></p><h3 id='encoder'><span>Encoder</span></h3><p><span>Το παράδειγμα χρησιμοποιεί για encoder με μεταφορά μάθησης το MobileNetV3Small. Στα </span><a href='https://keras.io/api/applications/'><span>έτοιμα μοντέλα</span></a><span> CNN του Keras υπάρχουν μοντέλα που εμφανίζονται να έχουν καλύτερες benchmark επιδόσεις από το MobileNet (V2). </span></p><p><span>Κρατήστε σταθερή τη διαδικασία train του decoder και δείτε αν μπορείτε να πάρετε καλύτερες επιδόσεις χρησιμοποιώντας άλλο συνελικτικό για encoder.</span></p><p><span>Όταν καταλήξετε στον encoder μπορείτε να χρησιμοποιήσετε τη δυνατότητα caching των features του notebook για να τα διαβάζετε / σώζετε  από και προς το Drive αντί να τα παράγετε κάθε φορά.</span></p><h3 id='προεπεξεργασία-κειμένου'><span>Προεπεξεργασία κειμένου</span></h3><ol start='' ><li><span>Τα captions έχουν διαφορετικά μήκη. Ενδεχομένως τα πολύ σύντομα και τα πολύ εκτενή να μην είναι  χρήσιμα στην εκπαίδευση. Στο tutorial χρησιμοποιείται ad-hoc ένα μέγιστο μήκος 50 λέξεων. Μπορείτε να φιλτράρετε το dataset έτσι ώστε να έχετε ένα range από διαφορετικά μήκη, χωρίς ούτε τα πολύ μικρά και χωρίς ούτε τα πολύ μεγάλα (δοκιμάστε ένα ιστόγραμμα). Θα πρέπει να προσαρμόσετε αναλόγως και την </span><code>max_length</code><span>.</span></li><li><span>Μελετήστε τα captions. Θα μπορούσε η συνάρτηση </span><code>standardize</code><span> να περιλαμβάνει και άλλα φίλτρα κανονικοποίησης; Προσοχή, εδώ δεν κάνουμε stemming.</span></li><li><span>To tutorial αποφασίζει ad hoc για ένα vocabulary 5000 λέξεων. Δοκιμάστε και κάποια διαφορετικά (μικρότερα ή μεγαλύτερα) μεγέθη vocabulary.</span></li></ol><h3 id='embeddings'><span>Embeddings</span></h3><p><span>Στο παράδειγμα του tutorial τα embeddings μαθαίνονται κατά την εκπαίδευση του μοντέλου. Αντί αυτού μπορούμε να χρησιμοποιήσουμε έτοιμα embeddings με μεταφορά μάθησης.  Δείτε πώς αποδίδει το δίκτυο για παράδειγμα με τα embeddings glove-wiki του </span><a href='https://radimrehurek.com/gensim/models/word2vec.html'><span>Gensim</span></a><span> διαφόρων διαστάσεων (50, 100, 200, 300).</span></p><h3 id='sentence-generator-beam-search'><span>Sentence Generator (Beam Search)</span></h3><p><span>Στο παράδειγμα χρησιμοποείται η μεταβλητή της &quot;θερμοκρασίας&quot; (</span><code>temperature</code><span>) για να παράγονται οι προτάσεις. Αν η θερμοκρασία είναι 0.0, έχουμε greedy decoding και επιλέγεται το πιο πιθανό token σε κάθε βήμα. Αν η θερμοκρασία είναι 1.0 κάνει τυχαίο sampling ως προς τις πιθανότητες (logits) του κάθε token. Αν η θερμοκρασία είναι πολύ μεγαλύτερη του 1.0 καταλήγουμε σε ομοιόμορφο τυχαίο sampling.</span></p><p style="text-align: center;">Beam Search sentence generation</p><p><img src="https://miro.medium.com/max/2400/1*tEjhWqUgjX37VnT7gJN-4g.png" referrerpolicy="no-referrer"></p><p><span>Στη βιβλιογραφία ωστόσο αναφέρεται ότι η μέθοδος </span><a href='https://towardsdatascience.com/foundations-of-nlp-explained-visually-beam-search-how-it-works-1586b9849a24'><span>Beam Search</span></a><span> παράγει σημαντικά καλύτερα αποτελέσματα. H Beam Search έχει μια υπερπαράμετρο που είναι το πλάτος της ακτίνας b. Για να διαλέξει την επόμενη λέξη ξεκινάει από την αρχή της πρότασης </span><code>[START]</code><span> και κρατάει τις b to πλήθος καλύτερες (πιθανότερες) λέξεις για το επόμενο βήμα. Με τον τρόπο αυτό δημιουργούντα b κλαδιά. Για το επόμενο βήμα υπολογίζει τις πιθανότητες των επόμενων λέξεων για όλα τα κλαδιά και κρατάει τις b πιθανότερες κοκ. Στο τέλος </span><code>[END]</code><span> καταλήγουμε να έχουμε b πιθανές προτάσεις και διαλέγουμε αυτή με τις καλύτερες πιθανότητες συνολικά. Για το τελευταίο, θα μπορούσαμε για παράδειγμα να χρησιμοποιήσουμε το Σ του log των πιθανοτήτων δια του μήκους της κάθε πρότασης. </span></p><p><span>Θα βρείτε έτοιμες υλοποιήσεις για το Beam Search που μπορείτε να προσαρμόσετε, όπως επίσης και συνήθεις τιμές για το b. Μπορείτε να τροποποιήσετε τα ορίσματα της </span><code>simple_gen</code><span> ώστε να καλύπτει και το Beam Search.</span></p><h3 id='υπερπαράμετροι-του-decoder'><span>Υπερπαράμετροι του decoder</span></h3><p><span>Μελετήστε την επίδραση των υπερπαραμέτρων </span><code>units</code><span>, </span><code>dropout_rate</code><span>, </span><code>num_layers</code><span>, και </span><code>num_heads</code><span> του μοντέλου.</span></p><p><span>Οι χρόνοι εκπαίδευσης μπορεί να είναι σημαντικοί. Χρησιμοποιήστε κάποια </span><a href='https://www.TensorFlow.org/tutorials/keras/save_and_load'><span>μέθοδο αποθήκευσης του μοντέλου</span></a><span> ώστε να μπορείτε να συνεχίζετε την εκπαίδευση. </span></p><p><span>Προφανώς δεν μπορούμε να κάνουμε cross-validation των παραμέτρων και αρχιτεκτονικών. Χρησιμοποιείτε σταδιακό training (σχετικά λίγα epochs) και εκτίμηση της απόδοσης του δικτύου με βάση το loss και τον απαιτούμενο χρόνο, ενώ παράλληλα εξετάζετε την ποιότητα του captioning με την </span><code>sentence_bleu</code><span> για επιλεγμένες εικόνες και κυρίως την </span><code>corpus_bleu</code><span> για ένα κομμάτι του test set. </span></p><h2 id='παραδοτέο'><span>Παραδοτέο</span></h2><p><span>Το notebook με το καλύτερο μοντέλο σας ως προς το </span><code>corpus_bleu</code><span> σε τουλάχιστον 1000 εικόνες από το test set. Μπορείτε να δοκιμάσετε και σε περισσότερες εικόνες, ιδανικά σε όλο το test set, απλά είναι θέμα χρόνου η παραγωγή των captions. </span></p><p><span>Χρησιμοποιήστε markdown για να εξηγήσετε τις επιλογές σας. Μπορείτε να σημειώσετε τιμές του BLEU και για ενδιάμεσες επιλογές και να τις παρουσιάσετε σε πίνακα. Δώστε παραδείγματα εικόνων με επιτυχημένα και  λιγότερο επιτυχημένα captioning.</span></p><h1 id='διαγωνισμός-προαιρετικός'><span>Διαγωνισμός (προαιρετικός)</span></h1><p><span>Η συμμετοχή στο διαγωνισμό είναι προαιρετική και δεν έχει καμία βαθμολογική σημασία. Ωστόσο, επειδή η κατάταξη γίνεται με βάση το </span><code>corpus_bleu</code><span>, η συμμετοχή και σύγκριση με άλλες υποβολές μπορεί να σας δείχνει πόσο έχετε προχωρήσει στη βελτίωση των captions σας.</span></p><h2 id='εικόνες-διαγωνισμού'><span>Εικόνες διαγωνισμού</span></h2><p><span>Για τον διαγωνισμό έχουμε επιλέξει 500 εικόνες για τις οποίες δεν έχετε καθόλου captions. Τα ονόματά τους περιλαμβάνονται στο &quot;competition_files.csv&quot;. Μπορείτε να τις διαβάσετε με τον ακόλουθο κώδικα:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Download competition files list</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">competition_files_list</span> <span class="cm-operator">=</span> <span class="cm-variable">tf</span>.<span class="cm-property">keras</span>.<span class="cm-property">utils</span>.<span class="cm-property">get_file</span>(<span class="cm-string">'competition_files.csv'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">cache_subdir</span><span class="cm-operator">=</span><span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">abspath</span>(<span class="cm-string">'.'</span>),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">origin</span><span class="cm-operator">=</span><span class="cm-string">'https://spartacus.1337.cx/flickr-mod/competition_files.csv'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">extract</span><span class="cm-operator">=</span><span class="cm-keyword">False</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">path</span><span class="cm-operator">=</span><span class="cm-string">"."</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">IMAGE_DIR</span><span class="cm-operator">=</span><span class="cm-string">"image_dir"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">path</span> <span class="cm-operator">=</span> <span class="cm-variable">pathlib</span>.<span class="cm-property">Path</span>(<span class="cm-variable">path</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">competition_files</span> <span class="cm-operator">=</span> (<span class="cm-variable">path</span><span class="cm-operator">/</span><span class="cm-variable">competition_files_list</span>).<span class="cm-property">read_text</span>().<span class="cm-property">splitlines</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">competition_files</span> <span class="cm-operator">=</span> [<span class="cm-builtin">str</span>(<span class="cm-variable">path</span><span class="cm-operator">/</span><span class="cm-variable">IMAGE_DIR</span><span class="cm-operator">/</span><span class="cm-variable">fname</span>) <span class="cm-keyword">for</span> <span class="cm-variable">fname</span> <span class="cm-keyword">in</span> <span class="cm-variable">competition_files</span>]</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 276px;"></div><div class="CodeMirror-gutters" style="display: none; height: 276px;"></div></div></div></pre><p><span>Μην ξεχάσετε να αλλάξετε τα paths αν χρησιμοποιείτε το Google Drive.</span></p><h2 id='δημιουργία-αρχείου-υποβολής'><span>Δημιουργία αρχείου υποβολής</span></h2><p><span>Για όλες τις εικόνες του &quot;competition_files.csv&quot; και με την σειρά που έχουν οι εικόνες (κάνοντας append δηλαδή) δημιουργήστε captions με τη μορφή λιστών. Αν ας πούμε είχαμε δύο εικόνες θα αποθηκεύαμε σε μια μεταβλητή </span><code>test_hypotheses</code><span> τα captions ως εξής:</span></p><p><code>[[&#39;a&#39;,  &#39;woman&#39;,  &#39;floats&#39;,  &#39;with&#39;,  &#39;her&#39;,  &#39;face&#39;,  &#39;out&#39;,  &#39;of&#39;,  &#39;water&#39;,  &#39;in&#39;,  &#39;a&#39;,  &#39;pool&#39;,  &#39;with&#39;,  &#39;another&#39;,  &#39;woman&#39;,  &#39;nearby&#39;,  &#39;posing&#39;,  &#39;for&#39;,  &#39;the&#39;,  &#39;camera&#39;], [&#39;a&#39;, &#39;black&#39;, &#39;and&#39;, &#39;white&#39;, &#39;dog&#39;, &#39;walks&#39;, &#39;along&#39;, &#39;a&#39;, &#39;sandy&#39;, &#39;beach&#39;]]</code></p><p><span>Υπολογίστε τα 500 captions στη μεταβλητή test_hypotheses και αποθηκεύετε την ως JSON ως εξής:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">json</span> </span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jsonString</span> <span class="cm-operator">=</span> <span class="cm-variable">json</span>.<span class="cm-property">dumps</span>(<span class="cm-variable">test_hypotheses</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jsonFile</span> <span class="cm-operator">=</span> <span class="cm-builtin">open</span>(<span class="cm-string">"test_hypotheses.json"</span>, <span class="cm-string">"w"</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jsonFile</span>.<span class="cm-property">write</span>(<span class="cm-variable">jsonString</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jsonFile</span>.<span class="cm-property">close</span>()</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 138px;"></div><div class="CodeMirror-gutters" style="display: none; height: 138px;"></div></div></div></pre><p><span>Κατεβάζετε τοπικά το αρχείο test_ypotheses.json, </span><u><span>το μετονομάζετε υποχρεωτικά σε answer.txt και το zipάρετε σε zip file</span></u><span> το όνομα του οποίου δεν έχει σημασία.</span></p><p><span>Συνημμένο στην εκφώνηση θα βρείτε ένα παράδειγμα λειτουργικού </span><a href='https://helios.ntua.gr/pluginfile.php/179077/mod_assign/introattachment/0/answer.txt?forcedownload=1'><span>answer.txt</span></a><span>.</span></p><h2 id='το-site-του-διαγωνισμού-στο-codalab'><span>Το site του διαγωνισμού στο Codalab</span></h2><p><img src="https://i.imgur.com/0fvamAe.png" referrerpolicy="no-referrer" alt="[Codalab competition](https://codalab.lisn.upsaclay.fr/competitions/926)"></p><p><span>Ο διαγωνισμός βρίσκεται στο </span><a href='https://codalab.lisn.upsaclay.fr/competitions/926'><span>σύνδεσμο αυτό προς το Codalab</span></a><span>. Χρησιμοποιήθηκε το Codalab αντί του Kaggle γιατί το Kaggle στο community tier δεν επιτρέπει custom μετρικές όπως η BLEU. To Codalab είναι επίσης το επίσημο αποθετήριο του COCO.</span></p><p><span>Θα πρέπει να κάνετε register. Σημειώστε ότι αν πάτε στα settings στο profile σας μπορείτε να ορίσετε όνομα ομάδας και μέλη της με τα username όλων σας στο Codalab. Προφανώς το όνομα της ομάδας μπορεί να είναι ό,τι θέλετε, άσχετο με τον αριθμό στο εργαστήριο.</span></p><h2 id='υποβολή-απάντησης-και-leaderboard'><span>Υποβολή απάντησης και leaderboard</span></h2><p><span>Για να ανεβάσετε μια απάντηση, θα πρέπει να πάτε στο tab &quot;Participate&quot;, στο &quot;Submit/View Results&quot; και να πατήσετε Submit για να ανεβάσετε το αρχείο υποβολής. Μπορείτε να κάνετε refresh της κατάστασης της υποβολής μέσω του διαθέσιμου button &quot;Refresh Status&quot;. Όταν η υποβολή ολοκληρωθεί, και εφόσον είναι επιτυχής, κάντε refresh την σελίδα μέσω του browser για να δείτε το score σας. Εάν το score σας σας ικανοποιεί, μπορείτε να κάνετε &quot;Submit to leaderboard&quot;.</span></p><p><span>Στο tab &quot;Results&quot; θα βρείτε το leaderboard των submissions όλων των ομάδων με βάση το </span><code>corpus_bleu</code><span>. </span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
